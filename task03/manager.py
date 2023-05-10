@@ -1,4 +1,3 @@
-import re
 from laptop import Laptop
 
 
@@ -16,9 +15,7 @@ class Manager:
     @staticmethod
     def max_price(laptops):
         if isinstance(laptops, (list, tuple)):
-            max_price = str(laptops[0])
-            max_price = [int(price) for price in re.findall(r'\d+', max_price)]
-            max_price = max_price[len(max_price) - 1]
+            max_price = laptops[0].price
             for laptop in laptops:
                 if isinstance(laptop, Laptop) and max_price < laptop.price:
                     max_price = laptop.price
